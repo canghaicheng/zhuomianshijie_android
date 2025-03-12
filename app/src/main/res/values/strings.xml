@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">桌面世界</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">桌面世界</string>
+    <string name="nav_header_subtitle">zhuomianshijie.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">世界</string>
+    <string name="menu_api">API设置</string>
+    <string name="menu_tts">TTS设置</string>
+    <string name="menu_stt">STT设置</string>
+</resources>

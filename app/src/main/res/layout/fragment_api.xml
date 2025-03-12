@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".ui.api.ApiFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- 设置名称和操作按钮 -->
+        <TextView
+            android:id="@+id/tv_setting_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置名称:"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner_api_settings" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner_api_settings"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_spinner"
+            android:popupBackground="#FFFFFF"
+            android:spinnerMode="dropdown"
+            android:dropDownWidth="180dp"
+            app:layout_constraintEnd_toStartOf="@+id/btn_copy"
+            app:layout_constraintStart_toEndOf="@+id/tv_setting_name_label"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_copy" />
+
+        <!-- 复制和删除按钮 -->
+        <Button
+            android:id="@+id/btn_copy"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:text="复制"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
+            android:textSize="14sp"
+            android:layout_marginEnd="8dp"
+            android:padding="0dp"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:text="删除"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FF0000"
+            android:textSize="14sp"
+            android:padding="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- API模式 -->
+        <TextView
+            android:id="@+id/tv_required_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="#FF0000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_api_mode_label" />
+
+        <TextView
+            android:id="@+id/tv_api_mode_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="API 模式"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_required_1"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_api_settings" />
+
+        <Spinner
+            android:id="@+id/spinner_api_mode"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/spinner_background_gray"
+            android:popupBackground="#FFFFFF"
+            android:entries="@array/api_modes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_api_mode_label" />
+
+        <!-- 名称 -->
+        <TextView
+            android:id="@+id/tv_required_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="#FF0000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_name_label" />
+            
+        <TextView
+            android:id="@+id/tv_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="名称"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_required_2"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_api_mode" />
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:background="@null"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:textColorHint="#AAAAAA"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_label" />
+            
+        <View
+            android:id="@+id/divider_name"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            app:layout_constraintTop_toBottomOf="@+id/et_name"/>
+
+        <!-- API域名 -->
+        <TextView
+            android:id="@+id/tv_required_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="#FF0000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_api_domain_label" />
+            
+        <TextView
+            android:id="@+id/tv_api_domain_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="API域名"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_required_3"
+            app:layout_constraintTop_toBottomOf="@+id/divider_name" />
+
+        <EditText
+            android:id="@+id/et_api_domain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:inputType="textUri"
+            android:background="@null"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:textColorHint="#AAAAAA"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_api_domain_label" />
+            
+        <View
+            android:id="@+id/divider_domain"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            app:layout_constraintTop_toBottomOf="@+id/et_api_domain"/>
+
+        <!-- API路径 -->
+        <TextView
+            android:id="@+id/tv_required_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="#FF0000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_api_path_label" />
+            
+        <TextView
+            android:id="@+id/tv_api_path_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="API路径"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_required_4"
+            app:layout_constraintTop_toBottomOf="@+id/divider_domain" />
+
+        <EditText
+            android:id="@+id/et_api_path"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:background="@null"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:textColorHint="#AAAAAA"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_api_path_label" />
+            
+        <View
+            android:id="@+id/divider_path"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            app:layout_constraintTop_toBottomOf="@+id/et_api_path"/>
+
+        <!-- API密钥 -->
+        <TextView
+            android:id="@+id/tv_required_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="#FF0000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_api_key_label" />
+            
+        <TextView
+            android:id="@+id/tv_api_key_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="API密钥"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_required_5"
+            app:layout_constraintTop_toBottomOf="@+id/divider_path" />
+
+        <!-- API密钥输入框 -->
+        <EditText
+            android:id="@+id/et_api_key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:background="@null"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:textColorHint="#AAAAAA"
+            android:drawablePadding="8dp"
+            android:drawableTint="#4CAF50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_api_key_label" />
+            
+        <View
+            android:id="@+id/divider_key"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            app:layout_constraintTop_toBottomOf="@+id/et_api_key"/>
+
+        <!-- 模型 -->
+        <TextView
+            android:id="@+id/tv_required_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="#FF0000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_model_label" />
+            
+        <TextView
+            android:id="@+id/tv_model_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="模型"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_required_6"
+            app:layout_constraintTop_toBottomOf="@+id/divider_key" />
+
+        <EditText
+            android:id="@+id/et_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:background="@null"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:textColorHint="#AAAAAA"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_model_label" />
+            
+        <View
+            android:id="@+id/divider_model"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            app:layout_constraintTop_toBottomOf="@+id/et_model"/>
+
+        <!-- 上下文限制 -->
+        <TextView
+            android:id="@+id/tv_required_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="#FF0000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_max_size_label" />
+
+        <TextView
+            android:id="@+id/tv_max_size_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上下文限制(K)"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_required_7"
+            app:layout_constraintTop_toBottomOf="@+id/divider_model" />
+
+        <EditText
+            android:id="@+id/et_max_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:inputType="number"
+            android:background="@null"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:textColorHint="#AAAAAA"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_max_size_label" />
+            
+        <View
+            android:id="@+id/divider_max_size"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DDDDDD"
+            app:layout_constraintTop_toBottomOf="@+id/et_max_size"/>
+
+        <!-- 保存和取消按钮 -->
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:text="保存"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2196F3"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_max_size" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
